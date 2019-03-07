@@ -112,6 +112,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fire()
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        var first:SKPhysicsBody
+        var second: SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            first = contact.bodyA
+            second = contact.bodyB
+        } else {
+            first = contact.bodyB
+            second = contact.bodyA
+        }
+        
+        // which body is laser
+        // comparing the bits
+        if (first.categoryBitMask & laserType) != 0 && (second.categoryBitMask & enemyType) != 0 {
+            // first is laser
+            laserHit(laser: first.node as! SKSpriteNode, enemy: second.node as! SKSpriteNode)
+
+        }
+
+    }
+    
+    func laserHit(laser:SKSpriteNode, enemy:SKSpriteNode) {
+        laser.removeFromParent()
+        enemy.removeFromParent()
+    }
+
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
