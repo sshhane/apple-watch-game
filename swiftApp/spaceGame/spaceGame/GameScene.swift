@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player = SKSpriteNode(imageNamed: "player")
 
-        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 10)
+        player.position = CGPoint(x: 20, y: -550)
         
         self.addChild(player)
         
