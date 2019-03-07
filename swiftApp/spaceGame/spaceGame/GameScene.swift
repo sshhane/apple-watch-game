@@ -12,79 +12,79 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var starfield:SKEmitterNode!
-    
     var player:SKSpriteNode!
     
-    var scoreLabel:SKLabelNode!
-    var score:Int = 0 {
-        didSet {
-            scoreLabel.text = "Points: \(score)"
-        }
-    }
+//    var scoreLabel:SKLabelNode!
+//    var score:Int = 0 {
+//        didSet {
+//            scoreLabel.text = "Points: \(score)"
+//        }
+//    }
     
-    var gameTimer:Timer!
+//    var gameTimer:Timer!
     
-    var enemies = ["meteorBrown_tiny1", "enemyBlue3"]
+//    var enemies = ["meteorBrown_tiny1", "enemyBlue3"]
     
     // bitmasks
-    let enemyType:UInt32 = 0x1 << 1
+//    let enemyType:UInt32 = 0x1 << 1
     
     override func didMove(to view: SKView) {
         starfield = SKEmitterNode(fileNamed: "Starfield")
         
-        //        starfield.position = CGPoint(x: 0, y: 1472)
-//        starfield.advanceSimulationTime(10)
-        //        self.addChild(starfield)
+        starfield.position = CGPoint(x: 0, y: 1472)
+        starfield.advanceSimulationTime(10)
+        self.addChild(starfield)
         
-        //        starfield.zPosition = -1
-        
-        player = SKSpriteNode(imageNamed: "shuttle")
-        
-        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
-        
-        self.addChild(player)
-        
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        self.physicsWorld.contactDelegate = self
 
-        scoreLabel = SKLabelNode(text: "Points: 0")
-        scoreLabel.position = CGPoint(x: 100, y: self.size.height - 60)
+        starfield.zPosition = -1
         
-        scoreLabel.fontSize = 36
-        scoreLabel.fontColor = UIColor.white
+//        player = SKSpriteNode(imageNamed: "shuttle")
+//
+//        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
+//
+//        self.addChild(player)
         
-        self.addChild(scoreLabel)
-        
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
+//        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+//        self.physicsWorld.contactDelegate = self
+//
+//        scoreLabel = SKLabelNode(text: "Points: 0")
+//        scoreLabel.position = CGPoint(x: 100, y: self.size.height - 60)
+//        
+//        scoreLabel.fontSize = 36
+//        scoreLabel.fontColor = UIColor.white
+//        
+//        self.addChild(scoreLabel)
+//        
+//        gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
     }
     
-    @objc func addAsteroid() {
-        // get random enemy
-        enemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: enemies) as! [String]
-        let enemy = SKSpriteNode(imageNamed: enemies[0])
-        
-        // get a random position for enamy to spawn
-        let randomPos = GKRandomDistribution(lowestValue: 0, highestValue: 414)
-        let position = CGFloat(randomPos.nextInt())
-        
-        // set the position plus a bit to get off screen
-        enemy.position = CGPoint(x: position, y: self.frame.size.height + enemy.size.height)
-        
-        // allow physics and collisions for enemy
-        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
-        enemy.physicsBody?.isDynamic = true
-        
-        enemy.physicsBody?.categoryBitMask = enemyType
-
-        self.addChild(enemy)
-        
-        var actionArray = [SKAction]()
-        
-        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -enemy.size.height), duration: 5))
-        actionArray.append(SKAction.sequence(actionArray))
-        
-        enemy.run(SKAction.sequence(actionArray))
-    }
+//    @objc func addAsteroid() {
+//        // get random enemy
+//        enemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: enemies) as! [String]
+//        let enemy = SKSpriteNode(imageNamed: enemies[0])
+//
+//        // get a random position for enamy to spawn
+//        let randomPos = GKRandomDistribution(lowestValue: 0, highestValue: 414)
+//        let position = CGFloat(randomPos.nextInt())
+//
+//        // set the position plus a bit to get off screen
+//        enemy.position = CGPoint(x: position, y: self.frame.size.height + enemy.size.height)
+//
+//        // allow physics and collisions for enemy
+//        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
+//        enemy.physicsBody?.isDynamic = true
+//
+//        enemy.physicsBody?.categoryBitMask = enemyType
+//
+//        self.addChild(enemy)
+//
+//        var actionArray = [SKAction]()
+//
+//        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -enemy.size.height), duration: 5))
+//        actionArray.append(SKAction.sequence(actionArray))
+//
+//        enemy.run(SKAction.sequence(actionArray))
+//    }
     
     
     override func update(_ currentTime: TimeInterval) {
