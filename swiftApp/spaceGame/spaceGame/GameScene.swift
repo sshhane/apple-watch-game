@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var starfield:SKEmitterNode!
+    
     var player:SKSpriteNode!
     
     var scoreLabel:SKLabelNode!
@@ -30,11 +31,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         starfield = SKEmitterNode(fileNamed: "Starfield")
-        starfield.position = CGPoint(x: 0, y:1472)
-        starfield.advanceSimulationTime(10)
-        self.addChild(starfield)
         
-        starfield.zPosition = -1
+        //        starfield.position = CGPoint(x: 0, y: 1472)
+//        starfield.advanceSimulationTime(10)
+        //        self.addChild(starfield)
+        
+        //        starfield.zPosition = -1
         
         player = SKSpriteNode(imageNamed: "shuttle")
         
