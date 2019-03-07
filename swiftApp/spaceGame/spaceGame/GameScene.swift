@@ -27,6 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // bitmasks
     let enemyType:UInt32 = 0x1 << 1
+    let laserType:UInt32 = 0x1 << 0
     
     override func didMove(to view: SKView) {
         starfield = SKEmitterNode(fileNamed: "Starfield")
@@ -80,6 +81,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         actionArray.append(SKAction.sequence(actionArray))
 
         enemy.run(SKAction.sequence(actionArray))
+    }
+    
+    func fire() {
+        let laser = SKSpriteNode(imageNamed: "laserGreen")
+        laser.position = player.position
+        laser.position.y += 3
+        
+        laser.physicsBody = SKPhysicsBody(circleOfRadius: laser.size.width / 2)
+        laser.physicsBody?.isDynamic = true
+        
+        laser.physicsBody?.categoryBitMask = laserType
+        laser.physicsBody?.contactTestBitMask = enemyType
+        laser.physicsBody?.collisionBitMask = 0
+        laser.physicsBody?.usesPreciseCollisionDetection = true
+        self.addChild(laser)
+        
+        let animationDuration:TimeInterval = 0.3
+        
+        
+        var actionArray = [SKAction]()
+        
+        actionArray.append(SKAction.move(to: CGPoint(x: player.position.x, y: self.frame.size.height + 10), duration: animationDuration))
+        actionArray.append(SKAction.removeFromParent())
+        
+        laser.run(SKAction.sequence(actionArray))
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        fire()
     }
     
     
