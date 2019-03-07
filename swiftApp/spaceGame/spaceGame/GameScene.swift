@@ -6,6 +6,7 @@
 //  Copyright © 2019 Shane Daniels. All rights reserved.
 //
 
+// imoort CorreMotion
 import SpriteKit
 import GameplayKit
 
@@ -135,8 +136,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func laserHit(laser:SKSpriteNode, enemy:SKSpriteNode) {
+        let fireBall = SKEmitterNode(fileNamed: "Explosion")!
+        
+        // explosion
+        fireBall.position = enemy.position
+        self.addChild(fireBall)
+        
         laser.removeFromParent()
         enemy.removeFromParent()
+        
+        // increment the score
+        score += 10
     }
 
     
