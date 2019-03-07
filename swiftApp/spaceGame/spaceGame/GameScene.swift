@@ -38,11 +38,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         starfield.zPosition = -1
         
-//        player = SKSpriteNode(imageNamed: "shuttle")
-//
-//        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
-//
-//        self.addChild(player)
+        player = SKSpriteNode(imageNamed: "player")
+
+        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 10)
+        
+        self.addChild(player)
         
 //        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
 //        self.physicsWorld.contactDelegate = self
