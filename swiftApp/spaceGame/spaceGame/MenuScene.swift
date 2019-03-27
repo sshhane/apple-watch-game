@@ -10,5 +10,18 @@ import UIKit
 import SpriteKit
 
 class MenuScene: SKScene {
+    
+    var starfield:SKEmitterNode!
+    
+    var newGameButtonNode:SKSpriteNode!
+    
+    override func didMove(to view: SKView) {
+        starfield = self.childNode(withName: "starfield") as! SKEmitterNode
+        starfield.advanceSimulationTime(10)
+        
+        newGameButtonNode = self.childNode(withName: "newGameButton") as! SKSpriteNode
+        
+        
+    }
 
 }
