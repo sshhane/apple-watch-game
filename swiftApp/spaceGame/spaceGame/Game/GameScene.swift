@@ -36,24 +36,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var xAccel:CGFloat = 0
     
     override func didMove(to view: SKView) {
-        starfield = SKEmitterNode(fileNamed: "Starfield")
         
+        // starfield background
+        starfield = SKEmitterNode(fileNamed: "Starfield")
         starfield.position = CGPoint(x: 0, y: 1472)
         starfield.advanceSimulationTime(10)
         self.addChild(starfield)
-        
-
         starfield.zPosition = -1
         
+        // player
         player = SKSpriteNode(imageNamed: "player")
-
         player.position = CGPoint(x: 20, y: -550)
-        
         self.addChild(player)
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
         
+        // score label
         scoreLabel = SKLabelNode(text: "Points: 0")
         scoreLabel.position = CGPoint(x: 300, y: 600)
         self.addChild(scoreLabel)
@@ -62,12 +61,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // motion tracking
         motionManager.accelerometerUpdateInterval = 0.2
-//        motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: <#T##CMAccelerometerHandler##CMAccelerometerHandler##(CMAccelerometerData?, Error?) -> Void#>)
         motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
             if let accelerometerData = data {
-                
                 let acceleration = accelerometerData.acceleration
-                
+                // increase acceleration
                 self.xAccel = CGFloat(acceleration.x) * 0.75 + self.xAccel * 0.25
             }
         }
@@ -106,7 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         laser.position = player.position
         laser.position.y += 3
         
-        laser.physicsBody = SKPhysicsBody(circleOfRadius: laser.size.width / 2)
+        laser.physicsBody = SKPhysicsBody(circleOfRadius: laser.size.width)
         laser.physicsBody?.isDynamic = true
         
         laser.physicsBody?.categoryBitMask = laserType
@@ -116,7 +113,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(laser)
         
         let animationDuration:TimeInterval = 0.3
-        
         
         var actionArray = [SKAction]()
         
@@ -142,23 +138,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             second = contact.bodyA
         }
         
-        // which body is laser
-        // comparing the bits
+        // comparing the bits to find which body is laser
         if (first.categoryBitMask & laserType) != 0 && (second.categoryBitMask & enemyType) != 0 {
             // first is laser
             laserHit(laser: first.node as! SKSpriteNode, enemy: second.node as! SKSpriteNode)
-
         }
-
     }
     
     func laserHit(laser:SKSpriteNode, enemy:SKSpriteNode) {
         let fireBall = SKEmitterNode(fileNamed: "Explosion")!
         
-        // explosion
+        // run explosion
         fireBall.position = enemy.position
         self.addChild(fireBall)
         
+        // remove from scene
         laser.removeFromParent()
         enemy.removeFromParent()
         
@@ -167,6 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didSimulatePhysics() {
+        // update player location
         player.position.x += xAccel * 20
         
         // keep player on screen
