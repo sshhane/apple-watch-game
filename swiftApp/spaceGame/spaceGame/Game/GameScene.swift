@@ -48,6 +48,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
+        
+        print(<#T##items: Any...##Any#>)
 
         scoreLabel = SKLabelNode(text: "Points: 0")
         scoreLabel.position = CGPoint(x: 300, y: 600)

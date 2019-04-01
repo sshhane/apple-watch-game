@@ -56,6 +56,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F7D3ED3422525091005B6491 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				F7FD01D0221C868C005C8536 /* GameScene.sks */,
+				F7FD01D4221C868C005C8536 /* GameScene.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		F7FD01C2221C868C005C8536 = {
 			isa = PBXGroup;
 			children = (
@@ -78,10 +87,9 @@
 			children = (
 				F7504D8522312C1A0002C6AD /* Starfield.sks */,
 				F7FD01CE221C868C005C8536 /* AppDelegate.swift */,
-				F7FD01D0221C868C005C8536 /* GameScene.sks */,
+				F7D3ED3422525091005B6491 /* Game */,
 				F7FD01D2221C868C005C8536 /* Actions.sks */,
 				F7FD01E8221CACCC005C8536 /* Explosion.sks */,
-				F7FD01D4221C868C005C8536 /* GameScene.swift */,
 				F7D3ED30224BE9F9005B6491 /* Menu.sks */,
 				F7D3ED32224BEB48005B6491 /* MenuScene.swift */,
 				F7FD01D6221C868C005C8536 /* GameViewController.swift */,
@@ -331,6 +339,7 @@
 		F7FD01E4221C868D005C8536 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -352,6 +361,7 @@
 		F7FD01E5221C868D005C8536 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
