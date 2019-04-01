@@ -1,0 +1,18 @@
+PODS:
+  - MMWormhole (2.0.0):
+    - MMWormhole/Core (= 2.0.0)
+  - MMWormhole/Core (2.0.0)
+
+DEPENDENCIES:
+  - MMWormhole (~> 2.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MMWormhole
+
+SPEC CHECKSUMS:
+  MMWormhole: 0cd3fd35a9118b2e2d762b499f54eeaace0be791
+
+PODFILE CHECKSUM: 56e1b93a21c5be136b7808c6faf5aefa2fc373e6
+
+COCOAPODS: 1.6.1

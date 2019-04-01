@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0720D1D02F8B9175AE4C5F33 /* Pods_spaceGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6E093907AAD96ABC11F27D /* Pods_spaceGame.framework */; };
 		F7504D8622312C1A0002C6AD /* Starfield.sks in Resources */ = {isa = PBXBuildFile; fileRef = F7504D8522312C1A0002C6AD /* Starfield.sks */; };
 		F7D3ED31224BE9F9005B6491 /* Menu.sks in Resources */ = {isa = PBXBuildFile; fileRef = F7D3ED30224BE9F9005B6491 /* Menu.sks */; };
 		F7D3ED33224BEB48005B6491 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D3ED32224BEB48005B6491 /* MenuScene.swift */; };
@@ -22,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B6E093907AAD96ABC11F27D /* Pods_spaceGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spaceGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CAD3E2FEB819283F8D6C811 /* Pods-spaceGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spaceGame.release.xcconfig"; path = "Target Support Files/Pods-spaceGame/Pods-spaceGame.release.xcconfig"; sourceTree = "<group>"; };
+		D196BECAC20DBA1C37674D5A /* Pods-spaceGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spaceGame.debug.xcconfig"; path = "Target Support Files/Pods-spaceGame/Pods-spaceGame.debug.xcconfig"; sourceTree = "<group>"; };
 		F7504D8522312C1A0002C6AD /* Starfield.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Starfield.sks; sourceTree = "<group>"; };
 		F7D3ED30224BE9F9005B6491 /* Menu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Menu.sks; sourceTree = "<group>"; };
 		F7D3ED32224BEB48005B6491 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
@@ -43,15 +47,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0720D1D02F8B9175AE4C5F33 /* Pods_spaceGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB0AA8C5146FD56215FD8337 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D196BECAC20DBA1C37674D5A /* Pods-spaceGame.debug.xcconfig */,
+				9CAD3E2FEB819283F8D6C811 /* Pods-spaceGame.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F7AEC921223952EE00E5CBA0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B6E093907AAD96ABC11F27D /* Pods_spaceGame.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -71,6 +87,7 @@
 				F7FD01CD221C868C005C8536 /* spaceGame */,
 				F7FD01CC221C868C005C8536 /* Products */,
 				F7AEC921223952EE00E5CBA0 /* Frameworks */,
+				CB0AA8C5146FD56215FD8337 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7FD01E3221C868D005C8536 /* Build configuration list for PBXNativeTarget "spaceGame" */;
 			buildPhases = (
+				D9F6120FB4ACD51C24350CCD /* [CP] Check Pods Manifest.lock */,
 				F7FD01C7221C868C005C8536 /* Sources */,
 				F7FD01C8221C868C005C8536 /* Frameworks */,
 				F7FD01C9221C868C005C8536 /* Resources */,
+				9FD510829CE99D5767A66AF6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +204,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9FD510829CE99D5767A66AF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-spaceGame/Pods-spaceGame-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MMWormhole/MMWormhole.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMWormhole.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-spaceGame/Pods-spaceGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9F6120FB4ACD51C24350CCD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-spaceGame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F7FD01C7221C868C005C8536 /* Sources */ = {
@@ -338,6 +404,7 @@
 		};
 		F7FD01E4221C868D005C8536 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D196BECAC20DBA1C37674D5A /* Pods-spaceGame.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -360,6 +427,7 @@
 		};
 		F7FD01E5221C868D005C8536 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CAD3E2FEB819283F8D6C811 /* Pods-spaceGame.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
