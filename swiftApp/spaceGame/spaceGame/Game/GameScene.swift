@@ -9,6 +9,7 @@
 // imoort CorreMotion
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -30,6 +31,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let enemyType:UInt32 = 0x1 << 1
     let laserType:UInt32 = 0x1 << 0
     
+    // motion tracking
+    let motionManager = CMMotionManager()
+    var xAccel:CGFloat = 0
+    
     override func didMove(to view: SKView) {
         starfield = SKEmitterNode(fileNamed: "Starfield")
         
@@ -49,13 +54,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
         
-        print(<#T##items: Any...##Any#>)
-
         scoreLabel = SKLabelNode(text: "Points: 0")
         scoreLabel.position = CGPoint(x: 300, y: 600)
         self.addChild(scoreLabel)
 
         gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
+        
+        // motion tracking
+        motionManager.accelerometerUpdateInterval = 0.2
+//        motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: <#T##CMAccelerometerHandler##CMAccelerometerHandler##(CMAccelerometerData?, Error?) -> Void#>)
+        motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
+            if let accelerometerData = data {
+                
+                let acceleration = accelerometerData.acceleration
+                
+                self.xAccel = CGFloat(acceleration.x) * 0.75 + self.xAccel * 0.25
+            }
+        }
     }
     
     @objc func addAsteroid() {
