@@ -171,7 +171,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player.position = CGPoint(x: 309, y: player.position.y)
         }
     }
-
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
