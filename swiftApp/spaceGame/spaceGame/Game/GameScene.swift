@@ -165,6 +165,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // increment the score
         score += 10
     }
+    
+    override func didSimulatePhysics() {
+        player.position.x += xAccel * 20
+    }
 
     
     override func update(_ currentTime: TimeInterval) {
