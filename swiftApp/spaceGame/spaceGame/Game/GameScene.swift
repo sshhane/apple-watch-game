@@ -168,6 +168,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didSimulatePhysics() {
         player.position.x += xAccel * 20
+        
+        // keep player on screen
+        if player.position.x < -310 {
+            player.position = CGPoint(x: -309, y: player.position.y)
+        }else if player.position.x > 310 {
+            player.position = CGPoint(x: 309, y: player.position.y)
+        }
     }
 
     
