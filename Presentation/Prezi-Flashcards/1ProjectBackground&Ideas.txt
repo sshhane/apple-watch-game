@@ -1,0 +1,11 @@
+The history of hand gesture recognition for computer control started with the invention of glove-based control interfaces back in the early '90s. 
+Researchers realized that gestures inspired by sign language can be used to offer simple commands for a computer interface. 
+This gradually evolved with the development of much accurate accelerometers, infrared cameras and even fibreoptic bend-sensors (optical goniometers).
+Looking at the progress that was made in the last 25 years or so, the future of gesture-based technology will shortly make many controller devices 
+obsolete if it hasn't done so already such as the TV remote, mouse and keyboard, gaming controllers, light switches, heating control, car keys etc.
+
+The assignment given to us in our Gesture-Based URI module was to develop an application with a natural-user interface. This gave us a broad range of 
+options to implement the app including voice-control, hand gestures and device-motion control. There were various choices to make in regards to what 
+one we were going to implement, but we felt the hand-gesture controlled application was the best option for us as it is currently the most robust form 
+in gesture-based technology and it has alot of development documentation online.
+
