@@ -30,7 +30,14 @@ class InterfaceController: WKInterfaceController {
     }
     
     func reloadData() {
-        
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.sendMessage(["request":"test"], replyHandler: { response in
+                print("received from iphone: \(response)")
+            }, errorHandler: { error in
+                print("error: \(error)")
+            })
+        }
     }
 
 }
