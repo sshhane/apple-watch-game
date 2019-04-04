@@ -1,1 +1,12 @@
-sa
+The research conducted in this project was based on the Apple SmartWatch device and it's implementations in different scenarios in the real world. 
+The main features of the device we investigated was the accelerometer and the gyroscope. The motion data extracted from these can alert the system to 
+specific movements by the user and track the type of the user's movement aswell.
+
+An accelerometer measures changes in velocity along one axis. All iOS devices have a three-axis accelerometer, which delivers acceleration values 
+in each of the three axes x, y and z. The values reported by the accelerometers are measured in increments of the gravitational acceleration, with 
+the value 1.0 representing an acceleration of 9.8 meters per second (per second) in the given direction. Acceleration values may be positive or negative 
+depending on the direction of the acceleration.
+
+A gyroscope measures the rate at which a device rotates around a spatial axis. Many iOS devices have a three-axis gyroscope, which delivers rotation 
+values in each of the three axes. Rotation values are measured in radians per second around the given axis. As with the accelerometer the rotation values 
+may be positive or negative depending on the direction of rotation.

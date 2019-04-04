@@ -1,1 +1,11 @@
-aa
+There are three main gestures availble for the Apple SmartWatch which are pitch, yaw and roll. Pitch reports rotations around the device’s x axis, 
+roll reports rotations around the y axis, and yaw reports rotations around the z axis. 
+
+As designers and developers, it's important to build smooth user flows to create frictionless interactions for users. The main thing we had to keep in 
+mind was the User-Friendliness of the gestures and being able to transition between different states of the game with ease.
+
+In terms of the rationale for our decisions as to which gestures trigger which actions in the game, we felt the Roll gesture for the movement of the spaceship 
+object in the game was best fitted and the most physically natural choice for the user. The other gestures tended to be quite jerky in motion and resulted in inconsistent movement 
+from left to right on screen. 
+
+Pitch to Shoot??
