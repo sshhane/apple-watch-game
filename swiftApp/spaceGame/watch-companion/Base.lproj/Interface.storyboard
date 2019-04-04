@@ -14,6 +14,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watch_companion" customModuleProvider="target">
                     <items>
+                        <label alignment="left" text="Roll: " id="mQF-4w-gtb"/>
                         <button width="1" alignment="left" verticalAlignment="center" title="Left" id="jVV-6I-vBg">
                             <connections>
                                 <action selector="moveLeft" destination="AgC-eL-Hgc" id="ZRb-QC-lIJ"/>
@@ -25,6 +26,9 @@
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="roll" destination="mQF-4w-gtb" id="Jsi-NH-whY"/>
+                    </connections>
                 </controller>
             </objects>
         </scene>
