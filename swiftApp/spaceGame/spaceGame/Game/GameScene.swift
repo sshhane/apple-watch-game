@@ -83,9 +83,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // motion tracking for watch
         // increase acceleration
-        self.xAccel = CGFloat(getDir()) * 0.75 + self.xAccel * 0.25
+        self.xAccel = CGFloat(xAccel) * 0.75 + self.xAccel * 0.25
         
-        print(getDir())
     }
     
     @objc func addAsteroid() {
@@ -179,9 +178,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didSimulatePhysics() {
-        let num:CGFloat = CGFloat(getDir())
+//        let num:CGFloat = CGFloat(1.1)
+//        let num:CGFloat = CGFloat(appDelegate.dir)
         // update player location
-        player.position.x += num * 20
+        player.position.x += xAccel * 20
+        
+        print(appDelegate.dir)
         
         // keep player on screen
         if player.position.x < -310 {
@@ -194,23 +196,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func scheduledTimerWithTimeInterval(){
     // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
     timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
-        
     }
     
     @objc func updateCounting() {
-        NSLog("counting..")
-    }
-    
-    func getDir() -> Int {
-        if appDelegate.dir == "left" {
-            print("left: \(appDelegate.dir)")
-            return -1
-        } else if appDelegate.dir == "right" {
-            return  1
-        } else {
-            return  0
-        }
-        return 0
+//        NSLog("counting..")
     }
     
     override func update(_ currentTime: TimeInterval) {

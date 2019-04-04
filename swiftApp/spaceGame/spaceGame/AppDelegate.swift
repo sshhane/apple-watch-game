@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     // direction
-    var dir = String()
+    var dir = Double()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -55,37 +55,28 @@ extension AppDelegate: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
     
         // set dir to the message
-        dir = message["request"] as! String
+        dir = message["request"] as! Double
 //    func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
-        guard let request = message["request"] as? String else {
+        guard let request = message["request"] as? Double else {
             replyHandler([:])
             return
         }
         
-        switch request {
-        case "left":
-            replyHandler(["test":"leftReply" as AnyObject])
-//            print("isPaired",session.isPaired)
-//            print("session.isWatchAppInstalled",session.isWatchAppInstalled)
-//            print(session.watchDirectoryURL)
-        case "right":
-                replyHandler(["test":"rightReply" as AnyObject])
-        default:
+        if (request > 0) {
+            replyHandler(["test":request as AnyObject])
+        } else if (request < 0){
+            replyHandler(["test":request as AnyObject])
+        } else {
             replyHandler([:])
         }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
-        
     }
     
     func sessionDidDeactivate(_ session: WCSession) {
-        
     }
-    
-    
 }

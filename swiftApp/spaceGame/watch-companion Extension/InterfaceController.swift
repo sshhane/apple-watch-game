@@ -17,7 +17,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var roll: WKInterfaceLabel!
     
     // vars
-    var rollStr = ""
+    var value = 0.0
     
     // motion manager
     let motionManager = CMMotionManager()
@@ -26,22 +26,17 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        reloadData(move: "left")
-        
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) { (data, error) in
-//            print(data as Any)
-            if let d = data {
-                let r = d.attitude.roll
-                self.rollStr = "Roll:  \(Double(r))"
-            }
-            self.updateLabel()
+            self.value = ((data?.attitude.pitch)!)
+            print(self.value)
+//                self.roll.setText("Pitch:  \(self.value)")
+
         }
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        updateLabel()
     }
     
     override func didDeactivate() {
@@ -49,10 +44,10 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    func reloadData(move: String) {
+    func reloadData(roll: Double) {
         if WCSession.isSupported() {
             let session = WCSession.default
-            session.sendMessage(["request":move], replyHandler: { response in
+            session.sendMessage(["request":roll], replyHandler: { response in
                 print("received from iphone: \(response)")
             }, errorHandler: { error in
                 print("error: \(error)")
@@ -60,37 +55,11 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    //
-    @IBAction func moveLeft() {
-        reloadData(move: "left")
-        self.rollStr = "left"
-        updateLabel()
-    }
-    
-    @IBAction func moveRight() {
-        reloadData(move: "right")
-        self.rollStr = "right"
-        updateLabel()
-    }
-    
-    private func sendMove(move: String) {
+    private func sendRoll(roll: String) {
         if WCSession.isSupported() {
             let  session = WCSession.default
             session.delegate = self as! WCSessionDelegate
             session.activate()
         }
     }
-    
-    func updateLabel() {
-        roll.setText(rollStr)
-    }
-    
-    func startDeviceMotionUpdates() {
-        
-    }
-    
-//    var attitude: CMAttitude { get }
-    
-//    let motionManager = CMMotionManager()
-//    motionManager.deviceMotionUpdateInterval = 1.0 / 50
 }

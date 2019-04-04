@@ -15,16 +15,6 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watch_companion" customModuleProvider="target">
                     <items>
                         <label alignment="left" text="Roll: " id="mQF-4w-gtb"/>
-                        <button width="1" alignment="left" verticalAlignment="center" title="Left" id="jVV-6I-vBg">
-                            <connections>
-                                <action selector="moveLeft" destination="AgC-eL-Hgc" id="ZRb-QC-lIJ"/>
-                            </connections>
-                        </button>
-                        <button width="1" alignment="left" verticalAlignment="center" title="Right" id="1TE-ML-ciw">
-                            <connections>
-                                <action selector="moveRight" destination="AgC-eL-Hgc" id="AkD-mO-D87"/>
-                            </connections>
-                        </button>
                     </items>
                     <connections>
                         <outlet property="roll" destination="mQF-4w-gtb" id="Jsi-NH-whY"/>
