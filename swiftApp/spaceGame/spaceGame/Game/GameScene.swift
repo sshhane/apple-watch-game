@@ -13,6 +13,7 @@ import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var i = 0
     var starfield:SKEmitterNode!
     var player:SKSpriteNode!
     
@@ -38,7 +39,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // WatchSession
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    // watch direction
+    var direction = 0
+    var timer = Timer()
+
     override func didMove(to view: SKView) {
+        
+        // timer
+        scheduledTimerWithTimeInterval()
+
         
         // starfield background
         starfield = SKEmitterNode(fileNamed: "Starfield")
@@ -62,7 +71,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
         
-        // motion tracking
+        // motion tracking for phone
         motionManager.accelerometerUpdateInterval = 0.2
         motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
             if let accelerometerData = data {
@@ -71,16 +80,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.xAccel = CGFloat(acceleration.x) * 0.75 + self.xAccel * 0.25
             }
         }
+        
+        // motion tracking for watch
+        // increase acceleration
+        self.xAccel = CGFloat(getDir()) * 0.75 + self.xAccel * 0.25
+        
+        print(getDir())
     }
     
     @objc func addAsteroid() {
-        
-        // test
-        if (appDelegate.dir == "left") {
-            score += 5
-        }
-        ///
-        
         // get random enemy
         enemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: enemies) as! [String]
         let enemy = SKSpriteNode(imageNamed: enemies[0])
@@ -171,8 +179,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didSimulatePhysics() {
+        let num:CGFloat = CGFloat(getDir())
         // update player location
-        player.position.x += xAccel * 20
+        player.position.x += num * 20
         
         // keep player on screen
         if player.position.x < -310 {
@@ -180,6 +189,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }else if player.position.x > 310 {
             player.position = CGPoint(x: 309, y: player.position.y)
         }
+    }
+    
+    func scheduledTimerWithTimeInterval(){
+    // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+    timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func updateCounting() {
+        NSLog("counting..")
+    }
+    
+    func getDir() -> Int {
+        if appDelegate.dir == "left" {
+            print("left: \(appDelegate.dir)")
+            return -1
+        } else if appDelegate.dir == "right" {
+            return  1
+        } else {
+            return  0
+        }
+        return 0
     }
     
     override func update(_ currentTime: TimeInterval) {
