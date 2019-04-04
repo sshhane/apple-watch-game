@@ -1,6 +1,6 @@
 The history of hand gesture recognition for computer control started with the invention of glove-based control interfaces back in the early '90s. 
 Researchers realized that gestures inspired by sign language can be used to offer simple commands for a computer interface. 
-This gradually evolved with the development of much accurate accelerometers, infrared cameras and even fibreoptic bend-sensors (optical goniometers).
+This gradually evolved with the development of more accurate accelerometers, infrared cameras and even fibreoptic bend-sensors (optical goniometers).
 Looking at the progress that was made in the last 25 years or so, the future of gesture-based technology will shortly make many controller devices 
 obsolete if it hasn't done so already such as the TV remote, mouse and keyboard, gaming controllers, light switches, heating control, car keys etc.
 
@@ -10,9 +10,8 @@ one we were going to implement, but we felt the hand-gesture controlled applicat
 in gesture-based technology and it has alot of development documentation online.
 
 In terms of hardware options, GMIT has various devices available to students including the Myo Armband, LEAP motion controllers, Kinect V2, Hololens and 
-Durovis Dive. I also own a P.A.C.O Gesture Control Speaker and Shane owns an Apple SmartWatch. After some research and experimentation, we both decided to 
-use the Apple SmartWatch as we were both familiar with Apple's mobile operating system iOS and we were interested in learning the programming language Swift, 
-developed by Apple Inc. for iOS and macOS. 
+Durovis Dive. Shane also owns an Apple SmartWatch which gave us a another option. After some research and experimentation, we both decided to use the Apple 
+SmartWatch as we were both familiar with Apple's mobile operating system iOS and we were interested in learning the programming language Swift, developed by Apple Inc. for iOS and macOS. 
 
 The next decison for the project was the actual implementation of the gesture based UI and we considered a couple of options. These consisted mainly of a 
 Unity Games where we incorporated the gestures of the apple watch to control the character to complete levels in 2-D platformer scenarios. This proved difficult 
