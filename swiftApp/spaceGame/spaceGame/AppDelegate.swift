@@ -13,7 +13,9 @@ import WatchConnectivity
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    // direction
+    var dir = String()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,9 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let  session = WCSession.default
             session.delegate = self
             session.activate()
-            
         }
-        
         return true
     }
 
@@ -48,14 +48,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
 extension AppDelegate: WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
     
+        // set dir to the message
+        dir = message["request"] as! String
 //    func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
         guard let request = message["request"] as? String else {
             replyHandler([:])
@@ -63,8 +63,13 @@ extension AppDelegate: WCSessionDelegate {
         }
         
         switch request {
-        case "test":
-            replyHandler(["test":"hello" as AnyObject])
+        case "left":
+            replyHandler(["test":"leftReply" as AnyObject])
+//            print("isPaired",session.isPaired)
+//            print("session.isWatchAppInstalled",session.isWatchAppInstalled)
+//            print(session.watchDirectoryURL)
+        case "right":
+                replyHandler(["test":"rightReply" as AnyObject])
         default:
             replyHandler([:])
         }

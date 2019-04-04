@@ -35,6 +35,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let motionManager = CMMotionManager()
     var xAccel:CGFloat = 0
     
+    // WatchSession
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func didMove(to view: SKView) {
         
         // starfield background
@@ -71,6 +74,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc func addAsteroid() {
+        
+        // test
+        if (appDelegate.dir == "left") {
+            score += 5
+        }
+        ///
+        
         // get random enemy
         enemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: enemies) as! [String]
         let enemy = SKSpriteNode(imageNamed: enemies[0])

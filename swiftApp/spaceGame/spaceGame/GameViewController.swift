@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import WatchConnectivity
 
 class GameViewController: UIViewController {
 

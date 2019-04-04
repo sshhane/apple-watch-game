@@ -16,7 +16,7 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        reloadData()
+        reloadData(move: "left")
     }
     
     override func willActivate() {
@@ -29,15 +29,34 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    func reloadData() {
+    func reloadData(move: String) {
         if WCSession.isSupported() {
             let session = WCSession.default
-            session.sendMessage(["request":"test"], replyHandler: { response in
+            session.sendMessage(["request":move], replyHandler: { response in
                 print("received from iphone: \(response)")
             }, errorHandler: { error in
                 print("error: \(error)")
             })
         }
     }
-
+    
+    //
+    @IBAction func moveLeft() {
+        reloadData(move: "left")
+    }
+    
+    @IBAction func moveRight() {
+        reloadData(move: "right")
+    }
+    
+    private func sendMove(move: String) {
+        if WCSession.isSupported() {
+            let  session = WCSession.default
+            session.delegate = self as! WCSessionDelegate
+            session.activate()
+        }
+        
+        
+    }
+    
 }
