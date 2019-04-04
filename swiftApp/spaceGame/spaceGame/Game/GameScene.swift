@@ -72,18 +72,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
         
         // motion tracking for phone
-        motionManager.accelerometerUpdateInterval = 0.2
-        motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
-            if let accelerometerData = data {
-                let acceleration = accelerometerData.acceleration
-                // increase acceleration
-                self.xAccel = CGFloat(acceleration.x) * 0.75 + self.xAccel * 0.25
-            }
-        }
+//        motionManager.accelerometerUpdateInterval = 0.2
+//        motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
+//            if let accelerometerData = data {
+//                let acceleration = accelerometerData.acceleration
+//                // increase acceleration
+//                self.xAccel = CGFloat(acceleration.x) * 0.75 + self.xAccel * 0.25
+//            }
+//        }
         
         // motion tracking for watch
         // increase acceleration
-        self.xAccel = CGFloat(xAccel) * 0.75 + self.xAccel * 0.25
+//        self.xAccel = CGFloat(xAccel) * 0.75 + self.xAccel * 0.25
         
     }
     
@@ -179,9 +179,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didSimulatePhysics() {
 //        let num:CGFloat = CGFloat(1.1)
-//        let num:CGFloat = CGFloat(appDelegate.dir)
+        let num:CGFloat = CGFloat(appDelegate.dir)
         // update player location
-        player.position.x += xAccel * 20
+        player.position.x += num * 20
         
         print(appDelegate.dir)
         
@@ -195,11 +195,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func scheduledTimerWithTimeInterval(){
     // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-    timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
     }
     
     @objc func updateCounting() {
 //        NSLog("counting..")
+        let num:CGFloat = CGFloat(appDelegate.dir)
+
+        player.position.x += num * 20
     }
     
     override func update(_ currentTime: TimeInterval) {

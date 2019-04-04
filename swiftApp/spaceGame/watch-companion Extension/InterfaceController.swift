@@ -26,11 +26,12 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         // Configure interface objects here.
+        motionManager.deviceMotionUpdateInterval = 0.5
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) { (data, error) in
             self.value = ((data?.attitude.pitch)!)
             print(self.value)
+            self.reloadData()
 //                self.roll.setText("Pitch:  \(self.value)")
-
         }
     }
     
@@ -44,10 +45,10 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    func reloadData(roll: Double) {
+    func reloadData() {
         if WCSession.isSupported() {
             let session = WCSession.default
-            session.sendMessage(["request":roll], replyHandler: { response in
+            session.sendMessage(["request":self.value], replyHandler: { response in
                 print("received from iphone: \(response)")
             }, errorHandler: { error in
                 print("error: \(error)")

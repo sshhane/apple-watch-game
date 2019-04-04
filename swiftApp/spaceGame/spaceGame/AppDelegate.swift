@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     // direction
-    var dir = Double()
+    var dir = 0.0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -55,7 +55,7 @@ extension AppDelegate: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
     
         // set dir to the message
-        dir = message["request"] as! Double
+//        dir = message["request"] as! Double
 //    func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
         guard let request = message["request"] as? Double else {
             replyHandler([:])
@@ -64,8 +64,10 @@ extension AppDelegate: WCSessionDelegate {
         
         if (request > 0) {
             replyHandler(["test":request as AnyObject])
+            dir = 1
         } else if (request < 0){
             replyHandler(["test":request as AnyObject])
+            dir = -1
         } else {
             replyHandler([:])
         }
