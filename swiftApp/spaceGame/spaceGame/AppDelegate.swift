@@ -62,15 +62,17 @@ extension AppDelegate: WCSessionDelegate {
             return
         }
         
-        if (request > 0) {
-            replyHandler(["test":request as AnyObject])
-            dir = 1
-        } else if (request < 0){
-            replyHandler(["test":request as AnyObject])
-            dir = -1
-        } else {
-            replyHandler([:])
-        }
+        dir = request
+        
+//        if (request > 0) {
+//            replyHandler(["test":request as AnyObject])
+////            dir = 1
+//        } else if (request < 0){
+//            replyHandler(["test":request as AnyObject])
+////            dir = -1
+//        } else {
+//            replyHandler([:])
+//        }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
