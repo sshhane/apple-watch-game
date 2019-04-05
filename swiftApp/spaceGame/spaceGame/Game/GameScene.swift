@@ -195,14 +195,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func scheduledTimerWithTimeInterval(){
     // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+    timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
     }
     
     @objc func updateCounting() {
+        fire()
 //        NSLog("counting..")
-        let num:CGFloat = CGFloat(appDelegate.dir)
-
-        player.position.x += num * 20
+//        let num:CGFloat = CGFloat(appDelegate.dir)
+//        player.position.x += num * 20
     }
     
     override func update(_ currentTime: TimeInterval) {

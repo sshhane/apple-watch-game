@@ -14,7 +14,14 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watch_companion" customModuleProvider="target">
                     <items>
-                        <label alignment="left" text="Roll: " id="mQF-4w-gtb"/>
+                        <label alignment="left" text="rotate arm!" id="mQF-4w-gtb"/>
+                        <button width="1" alignment="left" title="Fire!" id="HFZ-t4-xLF">
+                            <color key="titleColor" red="1" green="0.16035223188122472" blue="0.11188054282476623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <action selector="fire" destination="AgC-eL-Hgc" id="SeL-e3-iPv"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="roll" destination="mQF-4w-gtb" id="Jsi-NH-whY"/>
