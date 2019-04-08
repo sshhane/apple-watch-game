@@ -18,7 +18,6 @@ class InterfaceController: WKInterfaceController {
     
     // vars
     var value = 0.0
-//    var fireLazer = false
     
     // motion manager
     let motionManager = CMMotionManager()
@@ -28,21 +27,14 @@ class InterfaceController: WKInterfaceController {
         
         // Configure interface objects here.
         // record every half second
-        motionManager.deviceMotionUpdateInterval = 0.3
+        motionManager.deviceMotionUpdateInterval = 0.11
         // begin motion capture
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) { (data, error) in
             self.value = ((data?.attitude.pitch)!)
-            print(self.value)
+            print("value is: \(self.value)")
             self.reloadData()
 //                self.roll.setText("Pitch:  \(self.value)")
         }
-    }
-    
-    
-    @IBAction func fire() {
-//        self.fireLazer = true
-//        reloadData()
-//        self.fireLazer = false
     }
     
     override func willActivate() {
@@ -59,7 +51,6 @@ class InterfaceController: WKInterfaceController {
         if WCSession.isSupported() {
             let session = WCSession.default
             session.sendMessage(["pitch":self.value], replyHandler: { response in
-//              session.sendMessage(["pitch":self.value, "fire":self.value], replyHandler: { response in
                 print("received from iphone: \(response)")
             }, errorHandler: { error in
                 print("error: \(error)")

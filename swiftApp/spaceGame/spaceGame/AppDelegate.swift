@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // controls
     var dir = 0.0
-//    var fire = false
+    var fire = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -54,14 +54,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-    
-        // set dir to the message
-//        dir = message["request"] as! Double
-//    func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+        
         guard let pitch = message["pitch"] as? Double else {
             replyHandler([:])
             return
         }
+        
+        // set fire back to false
+//        guard (message["fire"] != nil) else {
+//            fire = false
+//            replyHandler([:])
+//            return
+//        }
         
 //        guard let didTap = message["fire"] as? Bool else {
 //            replyHandler([:])
