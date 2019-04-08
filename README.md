@@ -23,3 +23,13 @@ The app running on the phone is the 'game' part of this project.  It creates the
 Meanwhile on the watch app, the wearers arm rotation is recorded as attitude data (pitch) every tenth of a second and this data is sent to the gamed app on the paired iPhone.
 
 ## Links / References
+Watch connectivity:
+- https://www.raywenderlich.com/3358-advanced-watchos/lessons/5
+- https://www.natashatherobot.com/watchkit-open-ios-app-from-watch/
+- https://developer.apple.com/documentation/watchconnectivity
+
+Sending Data:
+- https://stackoverflow.com/questions/33200630/wcsession-sendmessagereplyhandler-error-code-7014-wcerrorcodedeliveryfailed
+- https://forums.developer.apple.com/thread/107831
+- https://stackoverflow.com/questions/32092243/global-variable-in-appdelegate-in-swift/32092335
+- https://stackoverflow.com/questions/42522499/access-variables-from-app-delegate-in-view-controller
