@@ -13,7 +13,7 @@ This game was developed for our fourth year Gesture-based UI project.
 
 ## Research
 
-## Game
+## Documentation
 As stated above the game requires both an iPhone and Apple Watch to be played.  This is because the game runs as an app on the phone whilst the companion watch app records and sends live data to the phone which is processed and used to control the onscreen avatar.
 
 ### iPhone
@@ -21,6 +21,13 @@ The app running on the phone is the 'game' part of this project.  It creates the
 
 ### Apple Watch
 Meanwhile on the watch app, the wearers arm rotation is recorded as attitude data (pitch) every tenth of a second and this data is sent to the gamed app on the paired iPhone.
+
+
+
+### Conclusions
+After decideing to use the Apple Watch as the controller we did some research into what other apps and games were already out there that used the device.  We found a couple of different uses for the watch.
+
+Firstly, there are a number of applications that use the watch to display information from their parent app on the phone in an abreviated or convenient way.  Examples of this would be displaying a text message or showing the minutes left on a timer.  Apps such as Facebook Messenger, MultiTimer and photos
 
 ## Links / References
 Watch connectivity:
