@@ -199,6 +199,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc func updateCounting() {
+//        fire every second
         fire()
 //        NSLog("counting..")
 //        let num:CGFloat = CGFloat(appDelegate.dir)
