@@ -178,7 +178,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didSimulatePhysics() {
 //        let num:CGFloat = CGFloat(1.1)
-        let num:CGFloat = CGFloat(self.xAccel)
+        let num:CGFloat = CGFloat(appDelegate.dir)
         // update player location
         player.position.x += num * 20
         

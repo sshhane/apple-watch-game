@@ -21,6 +21,9 @@
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="pitch" destination="mQF-4w-gtb" id="3hf-Mv-vMP"/>
+                    </connections>
                 </controller>
             </objects>
         </scene>

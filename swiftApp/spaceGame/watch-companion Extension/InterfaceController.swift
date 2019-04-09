@@ -14,6 +14,7 @@ import CoreMotion
 class InterfaceController: WKInterfaceController {
     
     // label
+    @IBOutlet weak var pitch: WKInterfaceLabel!
     
     // vars
     var value = 0.0
@@ -33,7 +34,7 @@ class InterfaceController: WKInterfaceController {
             self.value = ((data?.attitude.pitch)!)
             print("value is: \(self.value)")
             self.reloadData()
-//            self.pitch.setText("Pitch:  \(self.value)")
+            self.pitch.setText("Pitch:  \(self.value)")
         }
     }
     
