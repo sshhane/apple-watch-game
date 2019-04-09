@@ -22,14 +22,23 @@ The app running on the phone is the 'game' part of this project.  It creates the
 ### Apple Watch
 Meanwhile on the watch app, the wearers arm rotation is recorded as attitude data (pitch) every tenth of a second and this data is sent to the gamed app on the paired iPhone.
 
+### Code
+The main game loop is created in the GameScene.swift file.  This is where the scene is set up, the background starfield emitter, player, enemy spawner, motion manager etc. are added and the timer for auto-fire is initialised.  Seperate functions handle what hapens when there is player movement, spawning enemies, firing, contact and the timing.
 
+In the AppDelegate amongst other things the WCSession is set up.  This is what allows the data transfer between the paired watch and phone and also where a global variable is updated so that the movement data can be accessed in the GameScene.
+
+On the watch app, the Interface.storyboard is set up with a basic label to tell the user how to play.  The InterfaceController is where the CMMotionManager is set up and begins recording environmental data at a set interval of 0.11 seconds.  This number we found was the optimal time as anything quicker would take too much data to send and would clog up the data stream.  The data being sent is the pitch of the watch.  This pitch data is sent as a dictionary over the WCSession every interval of data.
 
 ### Conclusions
-After decideing to use the Apple Watch as the controller we did some research into what other apps and games were already out there that used the device.  We found a couple of different uses for the watch.
+After deciding to use the Apple Watch as the controller we did some research into what other apps and games were already out there that used the device.  We found a couple of different uses for the watch.
 
 Firstly, there are a number of applications that use the watch to display information from their parent app on the phone in an abreviated or convenient way.  Examples of this would be displaying a text message or showing the minutes left on a timer.  Apps such as Facebook Messenger, MultiTimer and photos
 
 ## Links / References
+Gameplay:
+- sprites: https://assetstore.unity.com/packages/templates/tutorials/into-the-space-2d-space-shooter-project-20749
+- Animations: https://www.brianadvent.com/spritekit-space-game-explosions/
+
 Watch connectivity:
 - https://www.raywenderlich.com/3358-advanced-watchos/lessons/5
 - https://www.natashatherobot.com/watchkit-open-ios-app-from-watch/
