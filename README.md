@@ -12,6 +12,13 @@ This game was developed for our fourth year Gesture-based UI project.
 - Links
 
 ## Research
+After deciding to use the Apple Watch as the controller we did some research into what other apps and games were already out there that used the device.  We found a couple of different uses for the watch.
+
+Firstly, there are a number of applications that use the watch to display information from their parent app on the phone in an abreviated or convenient way.  Examples of this would be displaying a text message or showing the minutes left on a timer.  Apps such as Facebook Messenger, MultiTimer and the native photos app have companion Watch apps of this manner.
+
+The second usage of Watch apps we found were apps that act as a remote for their parent app such as Spotify and the native Now Playing and camera apps. These examples enable the user to pause, play or skip tracks and take a photo on the paired device.
+
+While these applications of the paired watch and many others are quite useful and fun to use we noticed that there was no example where an app and companion app bundle that worked alongside one another where the watch was used as a controller for a game.
 
 ## Documentation
 As stated above the game requires both an iPhone and Apple Watch to be played.  This is because the game runs as an app on the phone whilst the companion watch app records and sends live data to the phone which is processed and used to control the onscreen avatar.
@@ -30,9 +37,7 @@ In the AppDelegate amongst other things the WCSession is set up.  This is what a
 On the watch app, the Interface.storyboard is set up with a basic label to tell the user how to play.  The InterfaceController is where the CMMotionManager is set up and begins recording environmental data at a set interval of 0.11 seconds.  This number we found was the optimal time as anything quicker would take too much data to send and would clog up the data stream.  The data being sent is the pitch of the watch.  This pitch data is sent as a dictionary over the WCSession every interval of data.
 
 ### Conclusions
-After deciding to use the Apple Watch as the controller we did some research into what other apps and games were already out there that used the device.  We found a couple of different uses for the watch.
 
-Firstly, there are a number of applications that use the watch to display information from their parent app on the phone in an abreviated or convenient way.  Examples of this would be displaying a text message or showing the minutes left on a timer.  Apps such as Facebook Messenger, MultiTimer and photos
 
 ## Links / References
 Gameplay:
