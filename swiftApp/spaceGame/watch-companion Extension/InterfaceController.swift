@@ -14,10 +14,10 @@ import CoreMotion
 class InterfaceController: WKInterfaceController {
     
     // label
-    @IBOutlet weak var roll: WKInterfaceLabel!
     
     // vars
     var value = 0.0
+    var rollStr = ""
     
     // motion manager
     let motionManager = CMMotionManager()
@@ -33,7 +33,7 @@ class InterfaceController: WKInterfaceController {
             self.value = ((data?.attitude.pitch)!)
             print("value is: \(self.value)")
             self.reloadData()
-//                self.roll.setText("Pitch:  \(self.value)")
+//            self.pitch.setText("Pitch:  \(self.value)")
         }
     }
     

@@ -70,6 +70,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
         
+//         motion tracking for phone
+        motionManager.accelerometerUpdateInterval = 0.2
+        motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
+            if let accelerometerData = data {
+                let acceleration = accelerometerData.acceleration
+                // increase acceleration
+                self.xAccel = CGFloat(acceleration.x) * 0.75 + self.xAccel * 0.25
+            }
+        }
+        
+//         motion tracking for watch
+//         increase acceleration
+//        self.xAccel = CGFloat(xAccel) * 0.75 + self.xAccel * 0.25
+        
     }
     
     @objc func addAsteroid() {
@@ -124,8 +138,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         laser.run(SKAction.sequence(actionArray))
     }
     
-    // fire on tap
-    // for testing
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         fire()
     }
@@ -166,7 +178,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didSimulatePhysics() {
 //        let num:CGFloat = CGFloat(1.1)
-        let num:CGFloat = CGFloat(appDelegate.dir)
+        let num:CGFloat = CGFloat(self.xAccel)
         // update player location
         player.position.x += num * 20
         
@@ -182,10 +194,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func scheduledTimerWithTimeInterval(){
     // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-    timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateFiring), userInfo: nil, repeats: true)
+    timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
     }
     
-    @objc func updateFiring() {
+    @objc func updateCounting() {
 //        fire every second
         fire()
 //        NSLog("counting..")
