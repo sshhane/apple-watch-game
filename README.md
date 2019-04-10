@@ -57,3 +57,6 @@ Sending Data:
 
 Class Diagram:
 - https://github.com/yoshimkd/swift-auto-diagram
+
+Apple Docs:
+- https://developer.apple.com/documentation
