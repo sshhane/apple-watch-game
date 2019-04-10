@@ -54,3 +54,6 @@ Sending Data:
 - https://forums.developer.apple.com/thread/107831
 - https://stackoverflow.com/questions/32092243/global-variable-in-appdelegate-in-swift/32092335
 - https://stackoverflow.com/questions/42522499/access-variables-from-app-delegate-in-view-controller
+
+Class Diagram:
+- https://github.com/yoshimkd/swift-auto-diagram
