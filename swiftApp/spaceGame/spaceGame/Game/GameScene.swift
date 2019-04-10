@@ -6,8 +6,7 @@
 //  Copyright © 2019 Shane Daniels. All rights reserved.
 //
 
-// imoort CorreMotion
-import SpriteKit
+//import SpriteKit
 import GameplayKit
 import CoreMotion
 
@@ -70,19 +69,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
         
-//         motion tracking for phone
-        motionManager.accelerometerUpdateInterval = 0.2
-        motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
-            if let accelerometerData = data {
-                let acceleration = accelerometerData.acceleration
-                // increase acceleration
-                self.xAccel = CGFloat(acceleration.x) * 0.75 + self.xAccel * 0.25
-            }
-        }
-        
-//         motion tracking for watch
-//         increase acceleration
-//        self.xAccel = CGFloat(xAccel) * 0.75 + self.xAccel * 0.25
+//         //motion tracking for phone
+//        motionManager.accelerometerUpdateInterval = 0.2
+//        motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
+//            if let accelerometerData = data {
+//                let acceleration = accelerometerData.acceleration
+//                // increase acceleration
+//                self.xAccel = CGFloat(acceleration.x) * 0.75 + self.xAccel * 0.25
+//            }
+//        }
         
     }
     
@@ -187,7 +182,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // keep player on screen
         if player.position.x < -310 {
             player.position = CGPoint(x: -309, y: player.position.y)
-        }else if player.position.x > 310 {
+        } else if player.position.x > 310 {
             player.position = CGPoint(x: 309, y: player.position.y)
         }
     }
@@ -200,9 +195,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     @objc func updateCounting() {
 //        fire every second
         fire()
-//        NSLog("counting..")
-//        let num:CGFloat = CGFloat(appDelegate.dir)
-//        player.position.x += num * 20
     }
     
     override func update(_ currentTime: TimeInterval) {
