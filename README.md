@@ -29,13 +29,18 @@ While these applications of the paired watch and many others are quite useful an
 The purpose of this project was to create an innovative game which utilized the sensors on an Apple Watch to control player motion on the screen of a paired iPhone.  In order to do this an iOS app running on an Apple iPhone, iPad or iPod Touch and a WatchOS app running on a paired Apple Watch was needed.  After much research and consideration, we came to this idea as we wanted both a challenge and to create something that had previously not been done before.
 Our chosen project was going to be a challenge for a couple of reasons.  One we had not previously done any native development on either iPhone or Apple Watch, and on top of this the language we would be writing in was going to be Swift, which we did not have any experience in.  The second reason that this would be difficult is that during our initial research there were many aspects to creating this kind of application that were either unclear if they were possible or there was a very limited amount of information that we could draw from online.
 
+#### Game Screens
+Below are screenshots of the app running on the iPhone and the companion app running on the Apple Watch
+
+<img src="/media/gameWatch.png" width="800" >
+
+
 ### Gestures identified as appropriate for this application - (35%)
 consider how gestures can be incorporated into the application, providing a justification for the ones that you pick. This is an important research element for the project and needs to explain how the gestures fit into the solution you are creating.
 
 ### Hardware used in creating the application
 
 ### Architecture for the solution
-The full architecture for the solution, communications and distributed elements that you are creating. The architecture must make sense when the gestures and the hardware are combined. Justification is necessary in the documentation for this.
 
 As stated above the game requires both an iPhone and Apple Watch to be played.  This is because the game runs as an app on the phone whilst the companion watch app records and sends live data to the phone which is processed and used to control the onscreen avatar.
 
@@ -53,7 +58,7 @@ In the AppDelegate amongst other things the WCSession is set up.  This is what a
 On the watch app, the Interface.storyboard is set up with a basic label to tell the user how to play.  The InterfaceController is where the CMMotionManager is set up and begins recording environmental data at a set interval of 0.11 seconds.  This number we found was the optimal time as anything quicker would take too much data to send and would clog up the data stream.  The data being sent is the pitch of the watch.  This pitch data is sent as a dictionary over the WCSession every interval of data.
 
 #### Class Diagram
-
+![Class Diagram](/media/class.png?raw=true "Class Diagram")
  
 #### Data Models
 The data that we are recording from the devices sensors is the pitch attitude.  This is being converted to a Double on the Watch app and is sent over WatchConnectivity to the iPhone AppDelegate as a dictionary.  This dictionary is made up of a key and value pair.
