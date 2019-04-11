@@ -35,10 +35,24 @@ Below are screenshots of the app running on the iPhone and the companion app run
 <img src="/media/gameWatch.png" width="800" >
 
 
-### Gestures identified as appropriate for this application - (35%)
-consider how gestures can be incorporated into the application, providing a justification for the ones that you pick. This is an important research element for the project and needs to explain how the gestures fit into the solution you are creating.
+### Gestures identified as appropriate for this application
+The assignment given to us in our Gesture-Based UI module was to develop an application with a natural-user interface. This gave us a broad range of options to implement the app including voice-control, hand gestures or device-motion control. There were various choices to make in regards to what one we were going to implement, but we felt the device-motion controlled application was the best option for us as it is currently the most robust form in gesture-based technology and it has alot of development documentation online.
+
+The next decison for the project was the actual implementation of the gesture based UI and we considered a couple of options. These consisted mainly of a Unity Games where we incorporated the gestures of the apple watch to control the character to complete levels in 2-D platformer scenarios. This proved difficult for us due to the limited compatibility and documentation of the Apple SmartWatch and the Unity Software. Other ideas  included the classic 2D game PACMAN, Temple-Run and Tetris. In the end we chose a 2D scroller space-shooter game and we decided to develop it in Swift as there is more support and references devolping in Swift using the Apple SmartWatch.
+There are three main gestures available for the Apple Watch which are pitch, yaw and roll. Pitch reports rotations around the device’s x axis, roll reports rotations around the y axis, and yaw reports rotations around the z axis. 
+As designers and developers, it's important to build smooth user flows to create frictionless interactions for users. The main thing we had to keep in mind was the User-Friendliness of the gestures and being able to transition between different states of the game with ease.
+
+In terms of the rationale for our decisions as to which gestures trigger which actions in the game, we felt the Pitch gesture for the movement of the spaceship object in the game was best fitted and the most physically natural choice for the user. The other gestures tended to be quite jerky in motion and resulted in inconsistent movement from left to right on screen.
 
 ### Hardware used in creating the application
+In terms of hardware options, GMIT has various devices available to students including the Myo Armband, LEAP motion controllers, Kinect V2, Hololens and Durovis Dive. Shane also owns an Apple Watch which gave us a another option. After some research and experimentation, we both decided to use the Apple Watch as we were both familiar with Apple's mobile operating system iOS. We were also interested in learning the Apple programming language Swift -which is developed by Apple Inc. for iOS and macOS and working in the XCode development environment. 
+We also found that the Apple Watch is somewhat similar to the Myo Armband so the research already compiled could be of some use going forward with the project.
+
+In comparison with the Myo Armband, we found the Apple Watch much more responsive and accurate. Although the gestures available programmed in the Myo were more sophisticated and detailed, we found the accuracy lacking for a reasonably fast-paced shooter game. We also discovered that two gestures in quick succession with the Myo often yielded different results therefore we couldn't predict a control function to be carried out in the game.
+The Apple SmartWatch device and it's implementations can be utilised innovatively in various scenarios in the real world. The main hardware features of the device we investigated were the accelerometer and the gyroscope. The motion data extracted from these can alert the system to specific movements by the user and track the type of the user movement aswell.
+An accelerometer measures changes in velocity along one axis. All iOS devices have a three-axis accelerometer, which delivers acceleration values in each of the three axes x, y and z. The values reported by the accelerometers are measured in increments of the gravitational acceleration, with the value 1.0 representing an acceleration of 9.8 meters per second (per second) in the given direction. Acceleration values may be positive or negative depending on the direction of the acceleration.
+A gyroscope measures the rate at which a device rotates around a spatial axis. Many iOS devices have a three-axis gyroscope, which delivers rotation values in each of the three axes. Rotation values are measured in radians per second around the given axis. As with the accelerometer the rotation values may be positive or negative depending on the direction of rotation.
+The most common use of this hardware is in fitness apps, where the gyroscope and accelerometer values are extracted and relayed in a useful manner to the end user. 
 
 ### Architecture for the solution
 
