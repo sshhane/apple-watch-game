@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.position = CGPoint(x: 300, y: 600)
         self.addChild(scoreLabel)
 
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAsteroid), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addEnemy), userInfo: nil, repeats: true)
         
 //         //motion tracking for phone
 //        motionManager.accelerometerUpdateInterval = 0.2
@@ -81,7 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    @objc func addAsteroid() {
+    @objc func addEnemy() {
         // get random enemy
         enemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: enemies) as! [String]
         let enemy = SKSpriteNode(imageNamed: enemies[0])
