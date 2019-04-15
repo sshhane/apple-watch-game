@@ -6,15 +6,11 @@ This project is a simple proof of concept space shooter game made to be played o
 
 This game was developed for our fourth year Gesture-based UI project.
 
-## Contents
-- Documentation
-  - Purpose
-  - Hardware
-  - Architecture
-  - Conclusions
-- Links
-
-
+## Repository Contents
+- Swift App: XCode workspace   
+- Demo Video: Short demonstration of the app working.
+- Documentation: Pdf outlining architecture, implementations and conclusions. 
+- Media: Directory containing images used.
 
 #### Game Screens
 Below are screenshots of the app running on the iPhone and the companion app running on the Apple Watch
