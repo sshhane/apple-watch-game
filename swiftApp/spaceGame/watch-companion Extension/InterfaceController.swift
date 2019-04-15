@@ -28,13 +28,13 @@ class InterfaceController: WKInterfaceController {
         
         // Configure interface objects here.
         // record every half second
-        motionManager.deviceMotionUpdateInterval = 0.11
+        motionManager.deviceMotionUpdateInterval = 0.2
         // begin motion capture
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) { (data, error) in
             self.value = ((data?.attitude.pitch)!)
             print("value is: \(self.value)")
             self.reloadData()
-            self.pitch.setText("Pitch:  \(self.value)")
+//            self.pitch.setText("Pitch:  \(self.value)")
         }
     }
     
